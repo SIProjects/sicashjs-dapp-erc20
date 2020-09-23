@@ -1,16 +1,16 @@
 import { observable } from "mobx"
-import { Qtum, QtumRPC, Contract } from "qtumjs"
+import { SICash, SICashRPC, Contract } from "sicashjs"
 
 import { ITransferLog, ITxRecord } from "./types"
 import { TxRecord } from "./views/TxRecord"
 
-// QTUM_RPC defined in config/[env].js
+// SICASH_RPC defined in config/[env].js
 // SOLAR_REPO is `solar.[env].json`. defined in config/*.js
-const QTUM_RPC = "http://localhost:9888"
+const SICASH_RPC = "http://localhost:9888"
 import * as repo from "../solar.json"
 
-const qtum = new Qtum(QTUM_RPC, repo as any)
-const myToken = qtum.contract("zeppelin-solidity/contracts/token/ERC20/CappedToken.sol")
+const sicash = new SICash(SICASH_RPC, repo as any)
+const myToken = sicash.contract("zeppelin-solidity/contracts/token/ERC20/CappedToken.sol")
 
 export class Store {
   @observable public totalSupply: number = 0

@@ -1,6 +1,6 @@
 build
 node_modules
-.qtum
+.sicash
 .DS_Store
 solar.json
 dist
